@@ -1,0 +1,16 @@
+- hosts: all
+  become: true
+  become_user: akshay
+
+  tasks: 
+  #- name: delete old deployments
+    #command: kubectl delete -f /opt/deployment.yml
+
+    #- name: delete service
+    #command: kubectl delete -f /opt/service.yml
+
+  - name: create new deployment
+    command: kubectl apply -f /opt/deployment.yml
+
+  - name: create new service
+    command: kubectl apply -f /opt/service.yml
